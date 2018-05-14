@@ -1,21 +1,3 @@
-//function statement
-function sayHi(){
-    console.log('hi');
-}
+var counter = require('./count');
 
-sayHi();
-
-//function expression
-var sayBye = function(){
-    console.log("Bye")
-}
-
-sayBye();
-
-
-//passing a function as a variable
-function callFunction(func){
-    func();
-}
-
-callFunction(sayBye);
+console.log(counter(['chris', 'bob', 'jett']));
