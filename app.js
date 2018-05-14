@@ -1,12 +1,24 @@
 var fs = require('fs');
 
-var readMe = fs.readFileSync('readme.txt', 'utf8');
+/*
+fs.mkdirSync('stuff');
+fs.rmdirSync('stuff');
+*/
 
-fs.writeFileSync('writeMe.txt', readMe);
+/*
+Async creation of a folder called stuff, 
+then in the callback read the data from readme 
+and write it to a new file inside the folder stuff
 
+fs.mkdir('stuff', function(){
+    fs.readFile('readme.txt', 'utf8', function(err, data){
+        fs.writeFile('./stuff/writeMe.txt', data);
+    })
+});
+*/
 
-//non blocking Async code
-fs.readFile('readme.txt', 'utf8', function(err, data){
-    console.log(data);
-})
+fs.unlink('./stuff/writeMe.txt', function(){
+    fs.rmdir('stuff');
+});
+
 
