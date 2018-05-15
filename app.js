@@ -3,9 +3,13 @@ var fs = require('fs');
 
 var server = http.createServer(function(request, response){
     console.log('request was made: ' + request.url);
-    var myReadStream = fs.createReadStream(__dirname + '/index.html', 'utf8');
-    response.writeHead(200, {'Content-Type': 'text/html'});
-    myReadStream.pipe(response);
+    response.writeHead(200, {'Content-Type': 'application/json'});
+    var myObj = {
+        name: 'Ryu',
+        job : 'ninja',
+        age: 29
+    }
+    response.end(JSON.stringify(myObj));
 });
 
 server.listen(3000, '127.0.0.1');
