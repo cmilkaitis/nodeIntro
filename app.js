@@ -1,26 +1,10 @@
-var fs = require('fs');
+var http = require('http');
 
-/*
-fs.mkdirSync('stuff');
-fs.rmdirSync('stuff');
-*/
-
-/*
-Async creation of a folder called stuff, 
-then in the callback read the data from readme 
-and write it to a new file inside the folder stuff
-
-fs.mkdir('stuff', function(){
-    fs.readFile('readme.txt', 'utf8', function(err, data){
-        fs.writeFile('./stuff/writeMe.txt', data);
-    })
-});
-*/
-
-fs.unlink('./stuff/writeMe.txt', function(){
-    fs.rmdir('stuff');
+var server = http.createServer(function(request, response){
+    console.log('request was made: ' + request.url);
+    response.writeHead(200, {'Content-Type': 'text/plain'});
+    response.end('Hey ninjazzz'); 
 });
 
-//Lesson 11 Clients and Servers
-
-
+server.listen(3000, '127.0.0.1');
+console.log('listening to port 3000');
