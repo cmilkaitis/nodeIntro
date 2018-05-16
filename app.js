@@ -1,34 +1,14 @@
-var http = require('http');
-var fs = require('fs');
+var express = require('express');
 
-var server = http.createServer(function(request, response){
-    console.log('request was made: ' + request.url);
-    
-    if(request.url === '/home' || request.url === '/'){
-        response.writeHead(200, {'Content-Type' : 'text/html'});
-        fs.createReadStream(__dirname + '/index.html').pipe(response);
-    } else if (request.url === '/contact'){
-        response.writeHead(200, {'Content-Type' : 'text/html'});
-        fs.createReadStream(__dirname + '/contact.html').pipe(response);
-    } else if (request.url === '/api/ninjas') {
-        var ninjas = [{name: 'ryu', age : 29}, {name: 'yoshi', age : 32}];
-        response.writeHead(200, {'Content-Type' : 'application/json'});
-        response.end(JSON.stringify(ninjas));
-    } else {
-        response.writeHead(404, {'Content-Type' : 'text/html'});
-        fs.createReadStream(__dirname + '/404.html').pipe(response);
-    }
+var app = express();
+
+app.get('/', function(req, res){
+    res.send('This is the home page');
 });
 
-server.listen(3000, '127.0.0.1');
-console.log('listening to port 3000');
+app.get('/contact', function(req, res){
+    res.send('This is the contact page');
+});
 
-/* 
+app.listen(3000);
 
-Lesson 22: Nodemon
-
-installed nodemon via npm, learned that its a good tool to use for live updates
-which will not require the node server to be restarted every time there is a change
-being made in the code
-
-*/
