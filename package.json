@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/cmilkaitis/nodeIntro/issues"
   },
-  "homepage": "https://github.com/cmilkaitis/nodeIntro#readme"
+  "homepage": "https://github.com/cmilkaitis/nodeIntro#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
