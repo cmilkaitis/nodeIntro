@@ -22,3 +22,13 @@ var server = http.createServer(function(request, response){
 
 server.listen(3000, '127.0.0.1');
 console.log('listening to port 3000');
+
+/* 
+
+Lesson 22: Nodemon
+
+installed nodemon via npm, learned that its a good tool to use for live updates
+which will not require the node server to be restarted every time there is a change
+being made in the code
+
+*/
