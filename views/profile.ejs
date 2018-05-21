@@ -6,10 +6,11 @@
             h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
             h2{font-size: 32px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
             ul{list-style-type: none;}
-            p{font-size: 16px; text-align: center;}
+            p, li{font-size: 16px; text-align: center;}
         </style>
     </head>
     <body>
+        <% include partials/nav.ejs %>
         <h1>Welcome to the profile of <%= person%></h1>
         <p><strong>Age: </strong> <%= data.age %></p>
         <p><strong>Job: </strong> <%= data.job %></p>
