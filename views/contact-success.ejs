@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{background: skyblue; font-family: verdana; color: #fff; padding: 30px; text-align: center;}
+            h1{font-size: 48px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+            h2{font-size: 32px; text-transform: uppercase; letter-spacing: 2px; text-align: center;}
+            ul{list-style-type: none;}
+            p, li{font-size: 16px; text-align: center;}
+        </style>
+    </head>
+    <body>
+        <div>
+            <% include partials/nav.ejs %>
+            <h1>Contact Us</h1>
+            <p>Thank you for contacting us!</p>
+            <p>You contacted <%= data.who %> in the <%= data.department %> department</p>
+            <p>We will reply to you at <%= data.email %></p>
+           
+        </div>
+    </body>
+</html>
